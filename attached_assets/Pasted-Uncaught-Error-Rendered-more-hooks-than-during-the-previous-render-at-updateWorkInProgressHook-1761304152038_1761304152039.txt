@@ -1,0 +1,41 @@
+Uncaught Error: Rendered more hooks than during the previous render.
+    at updateWorkInProgressHook (chunk-WERSD76P.js?v=23ae9525:11678:21)
+    at updateEffectImpl (chunk-WERSD76P.js?v=23ae9525:12074:22)
+    at updateEffect (chunk-WERSD76P.js?v=23ae9525:12099:18)
+    at Object.useEffect (chunk-WERSD76P.js?v=23ae9525:12703:22)
+    at useEffect (chunk-3TFVT2CW.js?v=23ae9525:1078:29)
+    at YahtzeeGame (yahtzee-game.tsx:373:3)
+    at renderWithHooks (chunk-WERSD76P.js?v=23ae9525:11548:26)
+    at updateFunctionComponent (chunk-WERSD76P.js?v=23ae9525:14582:28)
+    at beginWork (chunk-WERSD76P.js?v=23ae9525:15924:22)
+    at HTMLUnknownElement.callCallback2 (chunk-WERSD76P.js?v=23ae9525:3674:22)Understand this error
+injected.js:27 The above error occurred in the <YahtzeeGame> component:
+
+    at YahtzeeGame (https://96vetx8axjyewqb8x0li.apps.whop.com/src/components/yahtzee-game.tsx:62:39)
+    at div
+    at div
+    at GameRoom (https://96vetx8axjyewqb8x0li.apps.whop.com/src/pages/game-room.tsx:25:44)
+    at Route (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=23ae9525:323:16)
+    at Switch (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=23ae9525:379:17)
+    at Router (https://96vetx8axjyewqb8x0li.apps.whop.com/src/App.tsx?v=315FGKMKCJw_nv3PMMmrn:43:27)
+    at div
+    at Provider (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-VJRUVGTI.js?v=23ae9525:38:15)
+    at TooltipProvider (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=23ae9525:63:5)
+    at ThemeProvider (https://96vetx8axjyewqb8x0li.apps.whop.com/src/contexts/ThemeContext.tsx:20:33)
+    at QueryClientProvider (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=23ae9525:2805:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+(anonymous) @ injected.js:27Understand this error
+chunk-WERSD76P.js?v=23ae9525:9129 Uncaught Error: Rendered more hooks than during the previous render.
+    at updateWorkInProgressHook (chunk-WERSD76P.js?v=23ae9525:11678:21)
+    at updateEffectImpl (chunk-WERSD76P.js?v=23ae9525:12074:22)
+    at updateEffect (chunk-WERSD76P.js?v=23ae9525:12099:18)
+    at Object.useEffect (chunk-WERSD76P.js?v=23ae9525:12703:22)
+    at useEffect (chunk-3TFVT2CW.js?v=23ae9525:1078:29)
+    at YahtzeeGame (yahtzee-game.tsx:373:3)
+    at renderWithHooks (chunk-WERSD76P.js?v=23ae9525:11548:26)
+    at updateFunctionComponent (chunk-WERSD76P.js?v=23ae9525:14582:28)
+    at beginWork (chunk-WERSD76P.js?v=23ae9525:15924:22)
+    at beginWork$1 (chunk-WERSD76P.js?v=23ae9525:19753:22)

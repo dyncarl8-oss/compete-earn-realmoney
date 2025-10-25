@@ -1,0 +1,34 @@
+{
+  "de542e46-a9fd-4d4f-b882-4fa7e6baf109": {
+    "id": "de542e46-a9fd-4d4f-b882-4fa7e6baf109",
+    "pagePath": "/",
+    "userId": null,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "ipAddress": "172.31.80.162",
+    "createdAt": "2025-10-22T09:34:21.285Z"
+  },
+  "70cf35c5-44d8-4f3f-a8b1-19290051e5a7": {
+    "id": "70cf35c5-44d8-4f3f-a8b1-19290051e5a7",
+    "pagePath": "/",
+    "userId": null,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "ipAddress": "172.31.80.162",
+    "createdAt": "2025-10-22T09:49:50.736Z"
+  },
+  "4b154df6-0e50-4ca2-aa25-663ee6661bf7": {
+    "id": "4b154df6-0e50-4ca2-aa25-663ee6661bf7",
+    "pagePath": "/",
+    "userId": null,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "ipAddress": "172.31.80.162",
+    "createdAt": "2025-10-22T09:54:07.944Z"
+  },
+  "784297c5-a03b-448d-9a12-962718800f43": {
+    "id": "784297c5-a03b-448d-9a12-962718800f43",
+    "pagePath": "/",
+    "userId": null,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "ipAddress": "172.31.80.162",
+    "createdAt": "2025-10-22T09:59:16.604Z"
+  }
+}

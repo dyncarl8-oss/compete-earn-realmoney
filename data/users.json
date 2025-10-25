@@ -1,0 +1,25 @@
+{
+  "user-1": {
+    "id": "user-1",
+    "username": "player_alex",
+    "email": "alex@example.com",
+    "balance": "25.00",
+    "profileImageUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=80&h=80",
+    "gamesPlayed": 47,
+    "gamesWon": 15,
+    "totalWinnings": "75.00",
+    "createdAt": "2025-10-15T03:37:30.529Z"
+  },
+  "user_6SjB1Wo0chseh": {
+    "username": "giducosalleyah",
+    "email": "alleyah",
+    "profileImageUrl": "https://img-v2-prod.whop.com/HNlBVXNM0gRFgpghyjAQcdNxPBk7BiZSNxLQeI2h4jE/resize:fill/width:80/height:80/enlarge:true/dpr:2/plain/https://content.whop.com/default_avatars/panda.png",
+    "id": "user_6SjB1Wo0chseh",
+    "balance": "2.88",
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "totalWinnings": "0.00",
+    "createdAt": "2025-10-22T09:34:22.827Z",
+    "lastActivity": "2025-10-22T10:12:13.844Z"
+  }
+}
