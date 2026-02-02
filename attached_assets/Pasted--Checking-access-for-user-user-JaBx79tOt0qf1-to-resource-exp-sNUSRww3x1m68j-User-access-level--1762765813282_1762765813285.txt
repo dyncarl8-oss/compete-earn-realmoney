@@ -1,0 +1,26 @@
+🔍 Checking access for user user_JaBx79tOt0qf1 to resource exp_sNUSRww3x1m68j
+👤 User access level from SDK: admin
+✅ ADMIN ACCESS: User user_JaBx79tOt0qf1 is an ADMIN of exp_sNUSRww3x1m68j
+9:09:03 AM [express] POST /api/whop/check-access 200 in 2890ms :: {"has_access":true,"access_level":…
+9:09:04 AM [express] POST /api/analytics/page-view 200 in 339ms :: {"success":true}
+9:09:05 AM [express] GET /api/invitations 200 in 4804ms :: []
+📋 Dashboard: Fetching ledger account for company exp_sNUSRww3x1m68j
+9:09:06 AM [express] GET /api/whop/dashboard/ledger-account/exp_sNUSRww3x1m68j 200 in 2155ms
+9:09:07 AM [express] GET /api/whop/user 200 in 6363ms :: {"id":"user_JaBx79tOt0qf1","username":"prin…
+9:09:09 AM [express] GET /api/user/user_JaBx79tOt0qf1/welcome-bonus-eligible 304 in 1976ms :: {"elig…
+9:09:19 AM [express] GET /api/invitations 304 in 3193ms :: []
+9:09:32 AM [express] GET /api/invitations 304 in 3193ms :: []
+WebSocket client connected
+🔍 Checking access for user user_6SjB1Wo0chseh to resource exp_sNUSRww3x1m68j
+👤 User access level from SDK: customer
+✅ MEMBER ACCESS: User user_6SjB1Wo0chseh is a MEMBER of exp_sNUSRww3x1m68j
+9:09:35 AM [express] POST /api/whop/check-access 200 in 2916ms :: {"has_access":true,"access_level":…
+9:09:36 AM [express] GET /api/invitations 304 in 3574ms :: []
+9:09:37 AM [express] POST /api/analytics/page-view 200 in 1585ms :: {"success":true}
+9:09:37 AM [express] GET /api/whop/user 200 in 5121ms :: {"id":"user_6SjB1Wo0chseh","username":"gidu…
+User authenticated: giducosalleyah (user_6SjB1Wo0chseh)
+9:09:41 AM [express] GET /api/user/user_6SjB1Wo0chseh 200 in 3253ms :: {"id":"user_6SjB1Wo0chseh","u…
+9:09:41 AM [express] GET /api/user/user_6SjB1Wo0chseh/active-game 200 in 3509ms
+9:09:42 AM [express] GET /api/user/user_6SjB1Wo0chseh/transactions 200 in 4822ms :: [{"id":"2a7f1ad2…
+9:09:42 AM [express] GET /api/user/user_6SjB1Wo0chseh/welcome-bonus-eligible 304 in 4858ms :: {"elig…
+9:09:42 AM [express] GET /api/user/user_6SjB1Wo0chseh/withdrawals 200 in 4857ms :: [{"id":"80947a28-…

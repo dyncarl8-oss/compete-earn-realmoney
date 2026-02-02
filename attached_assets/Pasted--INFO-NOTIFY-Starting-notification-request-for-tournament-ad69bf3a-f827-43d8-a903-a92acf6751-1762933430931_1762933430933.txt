@@ -1,0 +1,45 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament ad69bf3a-f827-43d8-a903-a92acf67513b
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: ad69bf3a-f827-43d8-a903-a92acf67513b
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"ad69bf3a-f827-43d8-a903-a92acf67513b","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Sending notification to all users with access to experience exp_gNHCDZwSGJEEAQ...
+ℹ️ INFO: 🔔 [NOTIFY] Notification payload: {"experience_id":"exp_gNHCDZwSGJEEAQ","title":"New Tournament: 11","content":"A new chess tournament has been created! Entry fee: $11.00. Join now and compete for a prize pool of $16.50!"}
+ℹ️ INFO: 🔔 [NOTIFY] Whop API response status: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Whop API error: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Error details: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Failed to send notification: Error: Notification permission denied. Please ensure your Whop App has notification permissions enabled:
+1. Go to https://whop.com/dashboard/developer
+2. Select your app
+3. Go to Permissions tab
+4. Add notification permission as required
+5. Re-install/re-approve your app with the new permissions
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3921:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ EXCEPTION caught: Error: Notification permission denied. Please ensure your Whop App has notification permissions enabled:
+1. Go to https://whop.com/dashboard/developer
+2. Select your app
+3. Go to Permissions tab
+4. Add notification permission as required
+5. Re-install/re-approve your app with the new permissions
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3921:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ Error message: Notification permission denied. Please ensure your Whop App has notification permissions enabled:
+1. Go to https://whop.com/dashboard/developer
+2. Select your app
+3. Go to Permissions tab
+4. Add notification permission as required
+5. Re-install/re-approve your app with the new permissions
+❌ ERROR: 🔔 [NOTIFY] ❌ Error stack: Error: Notification permission denied. Please ensure your Whop App has notification permissions enabled:
+1. Go to https://whop.com/dashboard/developer
+2. Select your app
+3. Go to Permissions tab
+4. Add notification permission as required
+5. Re-install/re-approve your app with the new permissions
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3921:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7:37:16 AM [express] POST /api/tournaments/ad69bf3a-f827-43d8-a903-a92acf67513b/notify 500 in 3757ms…

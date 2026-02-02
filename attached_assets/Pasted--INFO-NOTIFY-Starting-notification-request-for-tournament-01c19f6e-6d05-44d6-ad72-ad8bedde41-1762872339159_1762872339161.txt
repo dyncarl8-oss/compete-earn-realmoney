@@ -1,0 +1,22 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament 01c19f6e-6d05-44d6-ad72-ad8bedde417c
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: 01c19f6e-6d05-44d6-ad72-ad8bedde417c
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"01c19f6e-6d05-44d6-ad72-ad8bedde417c","name":"test","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Sending notification to Whop API: {"company_id":"biz_EfM4YDzQmtSt1P","title":"New Tournament: test","content":"A new chess tournament has been created! Entry fee: $11.00. Join now and compete for a prize pool of $16.50!"}
+ℹ️ INFO: 🔔 [NOTIFY] Whop API response status: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Whop API error: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Error details: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ EXCEPTION caught: Error: Whop API returned 401: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3905:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ Error message: Whop API returned 401: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Error stack: Error: Whop API returned 401: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3905:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2:44:38 PM [express] POST /api/tournaments/01c19f6e-6d05-44d6-ad72-ad8bedde417c/notify 500 in 4023ms…
+2:44:41 PM [express] GET /api/invitations 304 in 3117ms :: []

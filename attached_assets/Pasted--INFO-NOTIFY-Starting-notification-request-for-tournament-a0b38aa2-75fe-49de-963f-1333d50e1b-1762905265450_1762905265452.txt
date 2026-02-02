@@ -1,0 +1,23 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament a0b38aa2-75fe-49de-963f-1333d50e1bcd
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: a0b38aa2-75fe-49de-963f-1333d50e1bcd
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"a0b38aa2-75fe-49de-963f-1333d50e1bcd","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Fetching members for company biz_EfM4YDzQmtSt1P...
+ℹ️ INFO: 🔔 [NOTIFY] Fetching members page (after: start)...
+❌ ERROR: 🔔 [NOTIFY] ❌ Failed to fetch members or send notification: TypeError: Cannot read properties of undefined (reading 'listMembers')
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3889:71)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ EXCEPTION caught: TypeError: Cannot read properties of undefined (reading 'listMembers')
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3889:71)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ Error message: Cannot read properties of undefined (reading 'listMembers')
+❌ ERROR: 🔔 [NOTIFY] ❌ Error stack: TypeError: Cannot read properties of undefined (reading 'listMembers')
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3889:71)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+11:54:13 PM [express] POST /api/tournaments/a0b38aa2-75fe-49de-963f-1333d50e1bcd/notify 500 in 2521ms…
+11:54:22 PM [express] GET /api/tournaments 304 in 1915ms :: [{"id":"a0b38aa2-75fe-49de-963f-1333d50e1…

@@ -1,0 +1,28 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament 5747437a-54f4-4399-abe9-84d83b3693e7
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: 5747437a-54f4-4399-abe9-84d83b3693e7
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"5747437a-54f4-4399-abe9-84d83b3693e7","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Fetching members for company biz_EfM4YDzQmtSt1P...
+ℹ️ INFO: 🔔 [NOTIFY] Fetching members page (after: start)...
+❌ ERROR: 🔔 [NOTIFY] Members API error (500): {"error":{"status":500,"message":"You are missing your company API key. To access this endpoint, you can get an API key from https://dash.whop.com/developer. The header should look like: 'Authorization: Bearer \u003capi key\u003e'"}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Failed to fetch members or send notification: Error: Failed to fetch members: 500 Internal Server Error - {"error":{"status":500,"message":"You are missing your company API key. To access this endpoint, you can get an API key from https://dash.whop.com/developer. The header should look like: 'Authorization: Bearer \u003capi key\u003e'"}}
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3928:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:3906:40)
+❌ ERROR: 🔔 [NOTIFY] ❌ EXCEPTION caught: Error: Failed to fetch members: 500 Internal Server Error - {"error":{"status":500,"message":"You are missing your company API key. To access this endpoint, you can get an API key from https://dash.whop.com/developer. The header should look like: 'Authorization: Bearer \u003capi key\u003e'"}}
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3928:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:3906:40)
+❌ ERROR: 🔔 [NOTIFY] ❌ Error message: Failed to fetch members: 500 Internal Server Error - {"error":{"status":500,"message":"You are missing your company API key. To access this endpoint, you can get an API key from https://dash.whop.com/developer. The header should look like: 'Authorization: Bearer \u003capi key\u003e'"}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Error stack: Error: Failed to fetch members: 500 Internal Server Error - {"error":{"status":500,"message":"You are missing your company API key. To access this endpoint, you can get an API key from https://dash.whop.com/developer. The header should look like: 'Authorization: Bearer \u003capi key\u003e'"}}
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3928:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:3906:40)
+7:27:21 AM [express] POST /api/tournaments/5747437a-54f4-4399-abe9-84d83b3693e7/notify 500 in 3232ms…
+7:27:27 AM [express] GET /api/invitations 304 in 3097ms :: []
+7:27:30 AM [express] GET /api/tournaments 304 in 1927ms :: [{"id":"5747437a-54f4-4399-abe9-84d83b369…

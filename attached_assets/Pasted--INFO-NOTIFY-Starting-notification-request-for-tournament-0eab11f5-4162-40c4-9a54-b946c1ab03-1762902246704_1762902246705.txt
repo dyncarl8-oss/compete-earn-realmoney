@@ -1,0 +1,19 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament 0eab11f5-4162-40c4-9a54-b946c1ab031a
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: 0eab11f5-4162-40c4-9a54-b946c1ab031a
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"0eab11f5-4162-40c4-9a54-b946c1ab031a","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Using experience ID: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Sending notification to Whop API: {"experience_id":"exp_gNHCDZwSGJEEAQ","title":"New Tournament: 11","content":"A new chess tournament has been created! Entry fee: $10.96. Join now and compete for a prize pool of $16.44!"}
+ℹ️ INFO: 🔔 [NOTIFY] Using API key (first 10 chars): apik_DUnOH...
+ℹ️ INFO: 🔔 [NOTIFY] ===== NOTIFICATION API RESPONSE =====
+ℹ️ INFO: 🔔 [NOTIFY] Status: 401 Unauthorized
+ℹ️ INFO: 🔔 [NOTIFY] Response Headers: {"alt-svc":"h3=\":443\"; ma=86400","cache-control":"no-cache","cf-cache-status":"DYNAMIC","cf-ray":"99d16cceca48401f-BOM","connection":"keep-alive","content-length":"104","content-type":"application/json","date":"Tue, 11 Nov 2025 23:03:49 GMT","server":"cloudflare","set-cookie":"__cf_bm=PUBMB8xreeRzRz.QEFF0Z0EDiwkKFEP9M4Fmqaweedk-1762902229-1.0.1.1-quNS8E.EYl6nvGxOpmHtDSmg3_9oiXV38oSoIH3IAE1nb6xhXcwva3elgRu4WXA1Qe2ZQjJVUidGPd6QQ.nhQbAvFeND2lBYINZSkjnmPdo; path=/; expires=Tue, 11-Nov-25 23:33:49 GMT; domain=.whop.com; HttpOnly; Secure; SameSite=None","strict-transport-security":"max-age=63072000; includeSubDomains","vary":"Origin","x-request-id":"fc7c7f35-e6cb-403f-bc61-4ba96ed339ee","x-runtime":"0.006930"}
+ℹ️ INFO: 🔔 [NOTIFY] Raw Response Body: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Notification API failed with status 401
+❌ ERROR: 🔔 [NOTIFY] ❌ Full error response: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Parsed error data: {
+  "error": {
+    "status": 401,
+    "message": "The API Key supplied does not have permission to access this route."
+  }
+}
+11:03:49 PM [express] POST /api/tournaments/0eab11f5-4162-40c4-9a54-b946c1ab031a/notify 401 in 2741ms…

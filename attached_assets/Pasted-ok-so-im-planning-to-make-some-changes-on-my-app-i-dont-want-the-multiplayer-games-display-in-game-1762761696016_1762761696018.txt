@@ -1,0 +1,14 @@
+ok, so im planning to make some changes on my app, i dont want the multiplayer games display in game lobby, but i have an idea, we should make it like so whop creators or the admin of the company, must host our these two multiplayer game yahtzee and chess for tournaments so members of the company can play the game, and winner wins the pot, and admins that hosted the tournament will earn a commision, also make sure admins of the company must have their separate admin dashboard page, to host tournaments see their commision balance and they can also withdraw, you know waht i mean? you get the idea right? pelase implement everything and make this perfect, yoy can think for yourself what other things we need.also we should keep the instant games as it is, so members can still have an option to play solo games, if the admin didnt host tournaments yet.
+
+also please make sure this is multi tenant.
+
+so the idea is, we MUST do this, we only detect or verify if the user is the admin or not like see what level access they have of that company, dont use like (/dashboard/:companyId for admins, /experiences/:experienceId for members, we just handle everything in our app, like create a page for admins, like after checking if it is an admin or not, we redirect them to admin page or dashboard that youll create, redirect them after verifying if admin of the company, so they can manage everything from there, and if it is a member only, we redirect them to our member page which is the game lobby page, i think? also, just please keep everything else as it is, like keep using our game lobby page, like keep displaying the instant games, like just remov ethe yahtze and chess display, cause they must be hosted by admin to be playable.
+before you proceed, so you have the idea waht im talking about, you MUST see all these links first, so understand everything, and will do a better job, make sure you see all these first ok:
+https://docs.whop.com/apps/guides/app-views
+https://docs.whop.com/api-reference/users/retrieve-user
+https://docs.whop.com/api-reference/users/check-access
+https://docs.whop.com/api-reference/companies/list-companies
+https://docs.whop.com/api-reference/companies/create-company
+https://docs.whop.com/api-reference/companies/retrieve-company
+https://docs.whop.com/api-reference/members/list-members
+https://docs.whop.com/api-reference/members/retrieve-member

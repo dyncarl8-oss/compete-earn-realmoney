@@ -1,0 +1,67 @@
+Create tournament error: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "potAmount"
+    ],
+    "message": "Expected string, received number"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "entryFee"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+    at get error [as error] (file:///home/runner/workspace/node_modules/zod/lib/index.mjs:587:31)
+    at ZodObject.parse (file:///home/runner/workspace/node_modules/zod/lib/index.mjs:663:22)
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3707:52)
+    at Layer.handle [as handle_request] (/home/runner/workspace/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/runner/workspace/node_modules/express/lib/router/route.js:149:13)
+    at requireAdminAuth (/home/runner/workspace/server/whop-auth.ts:85:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  issues: [
+    {
+      code: 'invalid_type',
+      expected: 'string',
+      received: 'number',
+      path: [Array],
+      message: 'Expected string, received number'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'string',
+      received: 'number',
+      path: [Array],
+      message: 'Expected string, received number'
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)],
+  errors: [
+    {
+      code: 'invalid_type',
+      expected: 'string',
+      received: 'number',
+      path: [Array],
+      message: 'Expected string, received number'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'string',
+      received: 'number',
+      path: [Array],
+      message: 'Expected string, received number'
+    }
+  ]
+}
+10:46:40 AM [express] POST /api/tournaments 500 in 961ms :: {"message":"Failed to create tournament"}
+10:46:42 AM [express] GET /api/invitations 304 in 1193ms :: []
+10:46:42 AM [express] GET /api/tournaments 304 in 878ms :: []
+10:46:43 AM [express] GET /api/user/user_JaBx79tOt0qf1/active-game 304 in 898ms
+10:46:44 AM [express] GET /api/invitations 304 in 1158ms :: []

@@ -1,0 +1,53 @@
+{
+  "game-1": {
+    "id": "game-1",
+    "name": "Lightning Round",
+    "gameType": "yahtzee",
+    "entryFee": "2.00",
+    "maxPlayers": 3,
+    "currentPlayers": 2,
+    "prizeAmount": "5.00",
+    "status": "open",
+    "winnerId": null,
+    "currentRound": 1,
+    "totalRounds": 13,
+    "currentTurnPlayerId": null,
+    "createdAt": "2025-10-15T03:37:30.552Z",
+    "startedAt": null,
+    "completedAt": null
+  },
+  "game-2": {
+    "id": "game-2",
+    "name": "High Stakes",
+    "gameType": "yahtzee",
+    "entryFee": "5.00",
+    "maxPlayers": 3,
+    "currentPlayers": 2,
+    "prizeAmount": "12.50",
+    "status": "filling",
+    "winnerId": null,
+    "currentRound": 1,
+    "totalRounds": 13,
+    "currentTurnPlayerId": null,
+    "createdAt": "2025-10-15T03:37:30.552Z",
+    "startedAt": null,
+    "completedAt": null
+  },
+  "game-3": {
+    "id": "game-3",
+    "name": "Quick Draw",
+    "gameType": "yahtzee",
+    "entryFee": "1.00",
+    "maxPlayers": 3,
+    "currentPlayers": 0,
+    "prizeAmount": "2.50",
+    "status": "open",
+    "winnerId": null,
+    "currentRound": 1,
+    "totalRounds": 13,
+    "currentTurnPlayerId": null,
+    "createdAt": "2025-10-15T03:37:30.552Z",
+    "startedAt": null,
+    "completedAt": null
+  }
+}

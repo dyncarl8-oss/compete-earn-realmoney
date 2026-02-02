@@ -1,0 +1,42 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament 5c9a0fb1-1fc1-46c2-84fc-20a241ab8d26
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: 5c9a0fb1-1fc1-46c2-84fc-20a241ab8d26
+8:00:11 AM [express] GET /api/tournaments 200 in 3241ms :: [{"id":"5c9a0fb1-1fc1-46c2-84fc-20a241ab8…
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"5c9a0fb1-1fc1-46c2-84fc-20a241ab8d26","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Sending notification to all members of company biz_EfM4YDzQmtSt1P...
+ℹ️ INFO: 🔔 [NOTIFY] Notification payload: {"company_id":"biz_EfM4YDzQmtSt1P","title":"New Tournament: 11","content":"A new chess tournament has been created! Entry fee: $11.00. Join now and compete for a prize pool of $16.50!"}
+ℹ️ INFO: 🔔 [NOTIFY] Whop API response status: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Whop API error: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Error details: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Failed to send notification: Error: Notification failed - your app (app_EDHDoUlPqJbDFO) must be installed on company biz_EfM4YDzQmtSt1P.
+Please ensure:
+1. Your app is installed on this company's Whop account
+2. The company has approved the app installation
+3. Go to https://whop.com/dashboard/apps to verify app installation status
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3916:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ EXCEPTION caught: Error: Notification failed - your app (app_EDHDoUlPqJbDFO) must be installed on company biz_EfM4YDzQmtSt1P.
+Please ensure:
+1. Your app is installed on this company's Whop account
+2. The company has approved the app installation
+3. Go to https://whop.com/dashboard/apps to verify app installation status
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3916:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+❌ ERROR: 🔔 [NOTIFY] ❌ Error message: Notification failed - your app (app_EDHDoUlPqJbDFO) must be installed on company biz_EfM4YDzQmtSt1P.
+Please ensure:
+1. Your app is installed on this company's Whop account
+2. The company has approved the app installation
+3. Go to https://whop.com/dashboard/apps to verify app installation status
+❌ ERROR: 🔔 [NOTIFY] ❌ Error stack: Error: Notification failed - your app (app_EDHDoUlPqJbDFO) must be installed on company biz_EfM4YDzQmtSt1P.
+Please ensure:
+1. Your app is installed on this company's Whop account
+2. The company has approved the app installation
+3. Go to https://whop.com/dashboard/apps to verify app installation status
+    at <anonymous> (/home/runner/workspace/server/routes.ts:3916:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8:00:13 AM [express] POST /api/tournaments/5c9a0fb1-1fc1-46c2-84fc-20a241ab8d26/notify 500 in 3746ms…

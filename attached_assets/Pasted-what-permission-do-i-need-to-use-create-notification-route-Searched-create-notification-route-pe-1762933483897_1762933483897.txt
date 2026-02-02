@@ -1,0 +1,29 @@
+what permission do i need to use create notification route?
+
+Searched create notification route permission
+According to the documentation, no additional permissions are required to use the create notification route.
+
+The only requirements are:
+
+For experience notifications: the experience must belong to your app
+For company notifications: the company must have your app installed
+This information is found on the Notifications guide page.
+
+Create notification API reference
+Notifications guide
+
+
+
+why am i having this error: ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament ad69bf3a-f827-43d8-a903-a92acf67513b ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: ad69bf3a-f827-43d8-a903-a92acf67513b ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"ad69bf3a-f827-43d8-a903-a92acf67513b","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"} ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ ℹ️ INFO: 🔔 [NOTIFY] Access level: admin ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P ℹ️ INFO: 🔔 [NOTIFY] Sending notification to all users with access to experience exp_gNHCDZwSGJEEAQ... ℹ️ INFO: 🔔 [NOTIFY] Notification payload: {"experience_id":"exp_gNHCDZwSGJEEAQ","title":"New Tournament: 11","content":"A new chess tournament has been created! Entry fee: $11.00. Join now and compete for a prize pool of $16.50!"} ℹ️ INFO: 🔔 [NOTIFY] Whop API response status: 401 Unauthorized ❌ ERROR: 🔔 [NOTIFY] ❌ Whop API error: 401 Unauthorized ❌ ERROR: 🔔 [NOTIFY] ❌ Error details: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+
+Searched create notification API key permissions 401 unauthorized
+
+Searched notification API key permissions scope required
+Based on the error and documentation, you're getting a 401 error because you're using an App API key, but the create notification route doesn't require any special permissions.
+
+The issue is likely that:
+
+Your API key is invalid or expired - Double-check the key in your environment variables
+You're not properly authenticating - Ensure you're passing the API key correctly in the Authorization header as Bearer YOUR_API_KEY
+Your app isn't installed on the company - The company (biz_EfM4YDzQmtSt1P) must have your app installed
+The notification API only requires that the experience belongs to your app (for experience notifications) or the company has your app installed (for company notifications). No additional permission scopes are needed.

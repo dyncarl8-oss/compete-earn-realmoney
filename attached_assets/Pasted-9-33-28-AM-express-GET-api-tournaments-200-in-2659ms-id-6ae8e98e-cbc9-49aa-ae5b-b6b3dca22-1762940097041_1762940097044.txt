@@ -1,0 +1,34 @@
+9:33:28 AM [express] GET /api/tournaments 200 in 2659ms :: [{"id":"6ae8e98e-cbc9-49aa-ae5b-b6b3dca22…
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament 6ae8e98e-cbc9-49aa-ae5b-b6b3dca22f6e
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: 6ae8e98e-cbc9-49aa-ae5b-b6b3dca22f6e
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"6ae8e98e-cbc9-49aa-ae5b-b6b3dca22f6e","name":"11","companyId":null,"experienceId":"exp_24gvSAJ8K8fBrf"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_24gvSAJ8K8fBrf
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_24gvSAJ8K8fBrf
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_24gvSAJ8K8fBrf
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Sending notification to all members
+ℹ️ INFO: 🔔 [NOTIFY] Using experienceId to notify all members: exp_24gvSAJ8K8fBrf
+ℹ️ INFO: 🔔 [NOTIFY] ✅ Notification sent successfully to all experience members
+9:33:32 AM [express] POST /api/tournaments/6ae8e98e-cbc9-49aa-ae5b-b6b3dca22f6e/notify 200 in 3268ms…
+9:33:39 AM [express] GET /api/invitations 304 in 3104ms :: []
+9:33:41 AM [express] GET /api/tournaments 304 in 2562ms :: [{"id":"6ae8e98e-cbc9-49aa-ae5b-b6b3dca22…
+9:33:54 AM [express] GET /api/tournaments 304 in 2528ms :: [{"id":"6ae8e98e-cbc9-49aa-ae5b-b6b3dca22…
+🔍 Checking access for user user_19t0ngmjS3ya9 to resource exp_24gvSAJ8K8fBrf
+👤 User access level from SDK: customer
+✅ MEMBER ACCESS: User user_19t0ngmjS3ya9 is a MEMBER of exp_24gvSAJ8K8fBrf
+9:33:57 AM [express] POST /api/whop/check-access 200 in 2449ms :: {"has_access":true,"access_level":…
+WebSocket client connected
+9:33:58 AM [express] GET /api/user/user_19t0ngmjS3ya9/welcome-bonus-eligible 304 in 2553ms :: {"elig…
+9:33:59 AM [express] POST /api/analytics/page-view 200 in 1556ms :: {"success":true}
+9:34:00 AM [express] GET /api/user/user_19t0ngmjS3ya9 200 in 3036ms :: {"id":"user_19t0ngmjS3ya9","u…
+9:34:00 AM [express] GET /api/user/user_19t0ngmjS3ya9/transactions 304 in 3165ms :: [{"id":"b0b64097…
+9:34:01 AM [express] GET /api/user/user_19t0ngmjS3ya9/withdrawals 304 in 3274ms :: [{"id":"01212e77-…
+9:34:02 AM [express] GET /api/tournaments/active 200 in 4293ms :: [{"id":"6ae8e98e-cbc9-49aa-ae5b-b6…
+9:34:05 AM [express] GET /api/tournaments 304 in 1476ms :: [{"id":"6ae8e98e-cbc9-49aa-ae5b-b6b3dca22…
+9:34:06 AM [express] GET /api/user/user_19t0ngmjS3ya9/active-game 304 in 9202ms
+WebSocket client disconnected
+9:34:10 AM [express] GET /api/user/user_19t0ngmjS3ya9/active-game 304 in 1342ms
+9:34:12 AM [express] GET /api/user/user_19t0ngmjS3ya9/active-tournaments 304 in 15035ms :: []
+9:34:17 AM [express] GET /api/tournaments 304 in 1153ms :: [{"id":"6ae8e98e-cbc9-49aa-ae5b-b6b3dca22…

@@ -1,0 +1,503 @@
+WHOP PLATFORM DOCUMENTATION - COMPREHENSIVE ANALYSIS
+=====================================================
+
+This document contains a complete analysis of Whop's app development platform based on documentation from 14 different pages. All information was scraped and analyzed on September 10, 2025.
+
+=====================================================
+1. WHOP APPS - INTRODUCTION & OVERVIEW
+=====================================================
+
+WHAT ARE WHOP APPS?
+- Web applications that can be embedded into Whop communities
+- Available through Whop's app store for installation by any creator
+- Built using Whop SDK that leverages platform infrastructure
+- Enables building full applications in hours instead of weeks
+
+EXAMPLE APPS IN THE ECOSYSTEM:
+- AI image generator
+- Pay-to-play games
+- Chat bots
+- AI car customizer
+
+MONETIZATION MODELS FOR DEVELOPERS:
+1. Transaction Fees: Take a percentage on each in-app sale (e.g., game credits, marketplace transactions)
+2. Installation Fee: One-time fee up to $5000 for creators to install the app
+3. Per Seat: Charge $1 per member inside a whop
+4. Monthly Subscription: Charge creators monthly (e.g., $300/month) for unlimited member usage
+5. Affiliate Commission: Let creators sell your app and earn referral fees for customers they bring
+
+PLATFORM BENEFITS:
+- Distribution: Automatic placement in Whop App Store visited by thousands of creators
+- Zero Authentication: Whop handles all user authentication automatically
+- Payment Infrastructure: Built-in payment system with low integration effort
+
+=====================================================
+2. GETTING STARTED - SETUP & TEMPLATE
+=====================================================
+
+QUICK START PROCESS:
+1. Clone Next.js template: `npx create-next-app@latest whop-app -e https://github.com/whopio/whop-nextjs-app-template`
+2. Install packages: `pnpm i` (or npm/yarn)
+3. Run locally: `pnpm dev`
+4. Open http://localhost:3000 and follow setup directions
+
+TEMPLATE FEATURES:
+- Pre-configured with Whop authentication logic
+- Ready-to-use Next.js setup
+- Integrated with Whop SDK
+
+=====================================================
+3. APP ARCHITECTURE - VIEWS & STRUCTURE
+=====================================================
+
+CORE APP VIEW TYPES:
+
+1. EXPERIENCE VIEWS
+   - Route: `/experiences/[experienceId]`
+   - Access: Private, gated through Whop SDK
+   - Purpose: Core app functionality for authorized users
+   - Each experience = unique app installation for a community
+
+2. DISCOVER VIEWS
+   - Route: Public page accessible to anyone
+   - Access: No authentication required
+   - Purpose: Marketing and discovery, showcase app value and success stories
+   - Can link to other successful Whops: `/discover/{accessPassRoute}/?app={yourAppId}`
+   - Enables earning affiliate commissions from referrals
+
+3. DASHBOARD VIEWS
+   - Route: `/dashboard/[companyId]`
+   - Access: Private, gated through Whop SDK
+   - Purpose: Direct creator access from their dashboard for business management
+
+DATA SCOPING STRATEGY:
+- Experience ID: Scope data to specific app installations
+- User ID: Associate data with individual users
+- Essential for multi-tenant architecture
+
+LOCAL DEVELOPMENT & TESTING:
+1. Install app on whop.com
+2. Navigate to app details page
+3. Set local paths and environment variables
+4. Use dev toggle to switch to local environment
+5. Test both experience and discover views
+6. Set production app base URL when ready to publish
+
+=====================================================
+4. TUTORIALS & LEARNING RESOURCES
+=====================================================
+
+AVAILABLE TUTORIALS:
+1. AI Image Generator - Build ChatGPT-powered image generator for creators
+2. Chat Bot Agent - AI chatbot responding to DMs using Whop's API
+3. AI Car Customizer - Car customization app with user charges
+4. Creator-Led Betting Game - Full tutorial video available on YouTube
+
+TUTORIAL STRUCTURE:
+- Step-by-step guides with sample code
+- Integration with external APIs and services
+- Best practices for Whop platform development
+- Real-world application examples
+
+=====================================================
+5. API KEYS & AUTHENTICATION SETUP
+=====================================================
+
+API KEY CREATION PROCESS:
+1. Go to https://whop.com/dashboard/developer/
+2. Click "Create App" button
+3. Name your app and click "Create"
+4. Copy API key from "Environment variables" section
+
+LEGACY SYSTEM (DEPRECATED):
+- Company API (V2 and V5) - for automating creator accounts or syncing payment/CRM data
+
+API KEY SECURITY:
+- Store in environment variables
+- Never expose in client-side code
+- Required for server-side SDK operations
+
+=====================================================
+6. USER AUTHENTICATION & ACCESS VALIDATION
+=====================================================
+
+USER TOKEN VERIFICATION:
+- JWT tokens passed in `x-whop-user-token` header
+- Use `whopSdk.verifyUserToken(headersList)` to extract user ID
+- Static public key provided for non-TypeScript implementations
+
+EXAMPLE IMPLEMENTATION (Next.js):
+```javascript
+const headersList = await headers();
+const { userId } = await whopSdk.verifyUserToken(headersList);
+const user = await whopSdk.users.getUser({ userId: userId });
+```
+
+ACCESS VALIDATION:
+- Check user access to specific experiences
+- Return access levels: 'admin', 'customer', or 'no_access'
+- Admin = owner/moderator, Customer = regular member
+
+SECURITY REQUIREMENTS:
+- Validate JWT token audience matches your app ID
+- Prevent token spoofing from different apps
+- Always verify on server-side
+
+NON-TYPESCRIPT IMPLEMENTATION:
+- Manual JWT decoding required
+- ES256 algorithm verification
+- Issuer validation: "urn:whopcom:exp-proxy"
+
+=====================================================
+7. WEBSOCKET FEATURES & REAL-TIME COMMUNICATION
+=====================================================
+
+CLIENT-SIDE SETUP:
+
+React Implementation:
+- Use `WhopWebsocketProvider` from `@whop/react`
+- Join specific experience channels or custom channels
+- Handle app messages with callbacks or hooks
+
+Other Frameworks:
+- Use `@whop/api` package
+- Create websocket client with `WhopClientSdk()`
+- Manual event handling for connections and messages
+
+MESSAGE HANDLING:
+- `message.isTrusted`: True if sent from your server with private API key
+- `message.json`: JSON string sent from server/client
+- `message.fromUserId`: User ID if sent from client
+
+CLIENT MESSAGE BROADCASTING:
+- Send messages to "everyone", specific experiences, custom channels, or individual users
+- Use `useBroadcastWebsocketMessage()` hook in React
+- Target specification matches server-side API
+
+SERVER-SIDE WEBSOCKETS:
+
+Sending Messages:
+```javascript
+// To everyone on your app
+whopApi.websockets.sendMessage({ message: JSON.stringify({data}), target: "everyone" });
+
+// To specific experience
+whopApi.websockets.sendMessage({ message: JSON.stringify({data}), target: { experience: "exp_XXXX" } });
+
+// To custom channel
+whopApi.websockets.sendMessage({ message: JSON.stringify({data}), target: { custom: "channel_name" } });
+
+// To specific user
+whopApi.websockets.sendMessage({ message: JSON.stringify({data}), target: { user: "user_XXXX" } });
+```
+
+Receiving Events:
+- Listen for chat messages and forum posts
+- Handle connection status changes
+- Requires Node.js 22.4+ or Bun
+- Use `.withUser("user_id")` to receive events for specific users
+
+=====================================================
+8. PAYMENTS & PAYOUTS SYSTEM
+=====================================================
+
+PAYMENT COLLECTION WORKFLOW:
+
+1. CREATE CHARGE (Server-side):
+```javascript
+const result = await whopSdk.payments.chargeUser({
+  amount: 100,
+  currency: "usd",
+  userId: userId,
+  metadata: { creditsToPurchase: 1, experienceId: experienceId },
+});
+```
+
+2. CONFIRM PAYMENT (Client-side):
+```javascript
+const res = await iframeSdk.inAppPurchase(inAppPurchase);
+if (res.status === "ok") {
+  setReceiptId(res.data.receipt_id);
+}
+```
+
+3. VALIDATE PAYMENT (Webhook):
+- Set up webhook route to handle payment events
+- Use `makeWebhookValidator` with webhook secret
+- Process `payment.succeeded` events
+- Always return 2xx status code quickly
+
+PAYOUT SYSTEM:
+- Send payouts using Whop username
+- Funds transfer from company's ledger account
+- Get ledger account via `whopSdk.companies.getCompanyLedgerAccount()`
+- Optional transfer fees supported
+
+SUPPORTED CURRENCIES:
+Over 80 currencies including: USD, EUR, GBP, JPY, CAD, AUD, BTC, ETH, and many others
+
+WEBHOOK CONFIGURATION:
+- Create webhook in dashboard app settings
+- Set WHOP_WEBHOOK_SECRET environment variable
+- Handle multiple event types (payment.succeeded, etc.)
+
+=====================================================
+9. SUBSCRIPTIONS & ACCESS PASSES
+=====================================================
+
+SUBSCRIPTION SETUP PROCESS:
+
+1. Dashboard Configuration:
+- Create access pass in app dashboard
+- Add pricing plan to access pass
+- Copy access pass ID and plan ID to environment variables
+
+2. Access Checking:
+```javascript
+const hasAccess = await whopSdk.access.checkIfUserHasAccessToAccessPass({
+  accessPassId: process.env.NEXT_PUBLIC_PREMIUM_ACCESS_PASS_ID,
+  userId: userId,
+});
+```
+
+3. Payment Collection:
+```javascript
+const res = await iframeSdk.inAppPurchase({ 
+  planId: process.env.NEXT_PUBLIC_PREMIUM_PLAN_ID 
+});
+```
+
+CUSTOM METADATA ATTACHMENT:
+- Create checkout session with metadata
+- Associate subscriptions with experiences/companies
+- Enable revenue sharing features
+- Metadata available in webhook payloads
+
+SUBSCRIPTION BENEFITS:
+- Recurring revenue model
+- Automatic access management
+- Integration with Whop's billing system
+- Creator revenue sharing capabilities
+
+=====================================================
+10. PUSH NOTIFICATIONS SYSTEM
+=====================================================
+
+NOTIFICATION TYPES:
+
+1. Experience-Wide Notifications:
+```javascript
+await whopSdk.notifications.sendPushNotification({
+  title: "New content is available",
+  content: content.slice(0, 100) + "...",
+  experienceId: experienceId,
+  senderUserId: createdByUserId,
+  isMention: false, // Set true for immediate mobile push
+});
+```
+
+2. Admin-Only Notifications:
+```javascript
+await whopSdk.notifications.sendPushNotification({
+  title: "A member just posted a new listing. Review it now.",
+  content: `${listingTitle}`,
+  companyTeamId: companyTeamId,
+});
+```
+
+3. Targeted User Notifications:
+```javascript
+await whopSdk.notifications.sendPushNotification({
+  title: "You were just outbid",
+  content: `${listingTitle}`,
+  experienceId: experienceId,
+  userIds: [specificUserId],
+});
+```
+
+DEEP LINKING:
+- Use `restPath` property for specific app routes
+- Update app path in dashboard to handle parameters
+- Example: `/experiences/[experienceId]/[restPath]`
+- Query parameters supported: `?id=${specialId}`
+
+NOTIFICATION FEATURES:
+- Sender profile pictures as notification images
+- Mobile push notification support
+- Content length management (truncation)
+- Metadata and context preservation
+
+=====================================================
+11. SDK API METHODS - DETAILED REFERENCE
+=====================================================
+
+CHARGE USER API:
+- Server-side only operation
+- Parameters: amount, currency, userId (required)
+- Optional: affiliateCode, description, metadata, redirectUrl
+- Returns: status ("needs_action" | "success") and inAppPurchase object
+- Supports 80+ currencies
+
+CREATE CHECKOUT SESSION API:
+- Server-side only operation
+- Parameters: planId (required)
+- Optional: affiliateCode, metadata, redirectUrl
+- Returns: checkout session ID and planId
+- Used for subscription purchases
+
+PAY USER API:
+- Server-side only operation for payouts
+- Parameters: amount, currency, destinationId, ledgerAccountId (required)
+- Optional: feedId, feedType, notes, reason, transferFee
+- Supports idempotence with unique keys
+- Multiple payout reasons available
+
+AUTHENTICATION METHODS:
+- `verifyUserToken()`: Extract user ID from JWT
+- `checkIfUserHasAccessToExperience()`: Validate experience access
+- `checkIfUserHasAccessToAccessPass()`: Validate subscription access
+- Access levels: "admin", "customer", "no_access"
+
+NOTIFICATION METHODS:
+- `sendPushNotification()`: Send notifications to users
+- Target options: experienceId, companyTeamId, userIds
+- Deep linking with restPath
+- Mention flags for immediate mobile push
+
+WEBSOCKET METHODS:
+- `websockets.sendMessage()`: Server-to-client messaging
+- `websockets.client()`: Create websocket connections
+- Multiple targeting options: everyone, experience, custom, user
+- Event handling for messages and connection status
+
+=====================================================
+12. INTEGRATION PATTERNS & BEST PRACTICES
+=====================================================
+
+DEVELOPMENT WORKFLOW:
+1. Set up local development environment with template
+2. Configure API keys and environment variables
+3. Implement core app functionality in experience views
+4. Add discovery page for marketing
+5. Test locally using dev toggle
+6. Set up webhooks for payment validation
+7. Configure push notifications for user engagement
+8. Deploy and publish to app store
+
+SECURITY CONSIDERATIONS:
+- Always validate JWT tokens server-side
+- Store API keys securely in environment variables
+- Implement proper webhook validation
+- Use idempotence keys for payment operations
+- Validate user access before sensitive operations
+
+MONETIZATION STRATEGIES:
+- Choose appropriate pricing model (transaction fees, subscriptions, etc.)
+- Implement affiliate tracking for creator commissions
+- Use metadata for detailed analytics and revenue attribution
+- Set up proper payout systems for revenue sharing
+
+REAL-TIME FEATURES:
+- Use websockets for live updates and user interactions
+- Implement proper connection status handling
+- Handle both trusted server messages and client broadcasts
+- Consider scalability for high-traffic applications
+
+USER EXPERIENCE:
+- Implement smooth payment flows with iframe modals
+- Provide clear access validation and error handling
+- Use push notifications strategically for engagement
+- Create intuitive discovery pages for app marketing
+
+TECHNICAL ARCHITECTURE:
+- Separate concerns between client and server operations
+- Use proper data scoping with experience and user IDs
+- Implement comprehensive error handling
+- Follow Next.js and React best practices when applicable
+
+=====================================================
+13. SUPPORTED FEATURES & LIMITATIONS
+=====================================================
+
+SUPPORTED FEATURES:
+✓ Embedded iframe applications
+✓ Real-time websocket communication
+✓ Payment processing and subscriptions
+✓ User authentication and access control
+✓ Push notifications
+✓ Webhook integrations
+✓ Multi-tenant architecture
+✓ Revenue sharing and payouts
+✓ App store distribution
+✓ Mobile-responsive design
+✓ Deep linking capabilities
+✓ Metadata and analytics support
+
+TECHNICAL REQUIREMENTS:
+- Node.js 22.4+ or Bun for server-side websockets
+- HTTPS for production deployments
+- Webhook endpoints for payment validation
+- Environment variable management
+- JWT token handling capabilities
+
+BROWSER COMPATIBILITY:
+- Modern browsers with iframe support
+- WebSocket support required for real-time features
+- Mobile browser compatibility for push notifications
+
+=====================================================
+14. ENVIRONMENT VARIABLES & CONFIGURATION
+=====================================================
+
+REQUIRED ENVIRONMENT VARIABLES:
+- `WHOP_API_KEY`: Your app's private API key
+- `NEXT_PUBLIC_WHOP_APP_ID`: Your app's public identifier
+- `WHOP_WEBHOOK_SECRET`: Secret for webhook validation
+- `NEXT_PUBLIC_PREMIUM_ACCESS_PASS_ID`: Access pass ID for subscriptions
+- `NEXT_PUBLIC_PREMIUM_PLAN_ID`: Plan ID for subscription pricing
+
+DEVELOPMENT SETUP:
+- Local development server configuration
+- Dev toggle for testing within Whop environment
+- Hot reload support for rapid development
+- Environment-specific configurations
+
+PRODUCTION REQUIREMENTS:
+- Secure HTTPS endpoints
+- Webhook URL configuration in dashboard
+- App base URL configuration
+- Error handling and logging setup
+
+=====================================================
+15. CONCLUSION & NEXT STEPS
+=====================================================
+
+The Whop platform provides a comprehensive ecosystem for building embedded applications within communities. Key strengths include:
+
+1. SIMPLIFIED DEVELOPMENT: Pre-built authentication, payment, and notification systems
+2. BUILT-IN MONETIZATION: Multiple revenue models with automatic distribution
+3. REAL-TIME CAPABILITIES: WebSocket support for live interactions
+4. COMPREHENSIVE SDK: Well-documented APIs for all platform features
+5. CREATOR ECOSYSTEM: Direct access to thousands of potential customers
+
+RECOMMENDED LEARNING PATH:
+1. Start with the Next.js template
+2. Implement basic experience view functionality
+3. Add payment integration for monetization
+4. Implement real-time features if needed
+5. Create discovery page for marketing
+6. Set up analytics and webhooks
+7. Test thoroughly before app store submission
+
+The platform is particularly well-suited for:
+- Gaming applications with monetization
+- AI-powered tools and services
+- Community management tools
+- Content creation platforms
+- Marketplace and e-commerce apps
+
+This comprehensive analysis covers all aspects of Whop app development based on the complete documentation available as of September 10, 2025.
+
+=====================================================
+END OF ANALYSIS
+=====================================================

@@ -1,0 +1,19 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament e0dbaf28-c71d-4a9d-af41-de6aca31a75c
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: e0dbaf28-c71d-4a9d-af41-de6aca31a75c
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"e0dbaf28-c71d-4a9d-af41-de6aca31a75c","name":"11","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Making request to: https://api.whop.com/api/v2/users/user_6SjB1Wo0chseh/access/exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Using API key (first 10 chars): apik_DUnOH...
+ℹ️ INFO: 🔔 [NOTIFY] ===== ACCESS CHECK API RESPONSE =====
+ℹ️ INFO: 🔔 [NOTIFY] Status: 401 Unauthorized
+ℹ️ INFO: 🔔 [NOTIFY] Response Headers: {"alt-svc":"h3=\":443\"; ma=86400","cache-control":"no-cache","cf-cache-status":"DYNAMIC","cf-ray":"99d14144fd451374-BOM","connection":"keep-alive","content-length":"104","content-type":"application/json","date":"Tue, 11 Nov 2025 22:34:05 GMT","server":"cloudflare","set-cookie":"__cf_bm=h8fMpkgxPpbUSUTvkuBN9C0Ud7trI5Il7VJQ3QHvfYU-1762900445-1.0.1.1-.wA1EJezZSMK8pnzM5vFC.4jnowsbRooccd5RyjmpUchm2aTRV6pJBDRo9m9jEJCIO.zwGkZ0slxqe7pAk2dZhwZPVvaploR_dZMKhrPtVE; path=/; expires=Tue, 11-Nov-25 23:04:05 GMT; domain=.whop.com; HttpOnly; Secure; SameSite=None","strict-transport-security":"max-age=63072000; includeSubDomains","vary":"Origin","x-request-id":"4658361b-93a6-44f7-b8a2-b3062a5bc4b5","x-runtime":"0.008444"}
+ℹ️ INFO: 🔔 [NOTIFY] Raw Response Body: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Admin check failed with status 401
+❌ ERROR: 🔔 [NOTIFY] ❌ Full error response: {"error":{"status":401,"message":"The API Key supplied does not have permission to access this route."}}
+❌ ERROR: 🔔 [NOTIFY] ❌ Parsed error data: {
+  "error": {
+    "status": 401,
+    "message": "The API Key supplied does not have permission to access this route."
+  }
+}

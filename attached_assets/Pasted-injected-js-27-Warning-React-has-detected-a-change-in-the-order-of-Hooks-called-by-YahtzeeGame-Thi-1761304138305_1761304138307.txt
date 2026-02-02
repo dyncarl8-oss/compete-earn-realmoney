@@ -1,0 +1,112 @@
+injected.js:27 Warning: React has detected a change in the order of Hooks called by YahtzeeGame. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://reactjs.org/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+1. useContext                 useContext
+2. useSyncExternalStore       useSyncExternalStore
+3. useRef                     useRef
+4. useInsertionEffect         useInsertionEffect
+5. useState                   useState
+6. useState                   useState
+7. useState                   useState
+8. useEffect                  useEffect
+9. useContext                 useContext
+10. useContext                useContext
+11. useContext                useContext
+12. useEffect                 useEffect
+13. useState                  useState
+14. useCallback               useCallback
+15. useSyncExternalStore      useSyncExternalStore
+16. useEffect                 useEffect
+17. useRef                    useRef
+18. useRef                    useRef
+19. useContext                useContext
+20. useContext                useContext
+21. useContext                useContext
+22. useEffect                 useEffect
+23. useState                  useState
+24. useCallback               useCallback
+25. useSyncExternalStore      useSyncExternalStore
+26. useEffect                 useEffect
+27. useContext                useContext
+28. useContext                useContext
+29. useContext                useContext
+30. useEffect                 useEffect
+31. useState                  useState
+32. useCallback               useCallback
+33. useSyncExternalStore      useSyncExternalStore
+34. useEffect                 useEffect
+35. useContext                useContext
+36. useContext                useContext
+37. useState                  useState
+38. useEffect                 useEffect
+39. useCallback               useCallback
+40. useSyncExternalStore      useSyncExternalStore
+41. useCallback               useCallback
+42. useContext                useContext
+43. useContext                useContext
+44. useState                  useState
+45. useEffect                 useEffect
+46. useCallback               useCallback
+47. useSyncExternalStore      useSyncExternalStore
+48. useCallback               useCallback
+49. useContext                useContext
+50. useContext                useContext
+51. useState                  useState
+52. useEffect                 useEffect
+53. useCallback               useCallback
+54. useSyncExternalStore      useSyncExternalStore
+55. useCallback               useCallback
+56. useContext                useContext
+57. useState                  useState
+58. useState                  useState
+59. useState                  useState
+60. useEffect                 useEffect
+61. useContext                useContext
+62. useContext                useContext
+63. useContext                useContext
+64. useEffect                 useEffect
+65. useState                  useState
+66. useCallback               useCallback
+67. useSyncExternalStore      useSyncExternalStore
+68. useEffect                 useEffect
+69. useContext                useContext
+70. useState                  useState
+71. useEffect                 useEffect
+72. useCallback               useCallback
+73. useSyncExternalStore      useSyncExternalStore
+74. useCallback               useCallback
+75. useState                  useState
+76. useEffect                 useEffect
+77. useState                  useState
+78. useState                  useState
+79. useState                  useState
+80. useContext                useContext
+81. useSyncExternalStore      useSyncExternalStore
+82. useRef                    useRef
+83. useInsertionEffect        useInsertionEffect
+84. useState                  useState
+85. useEffect                 useEffect
+86. useRef                    useRef
+87. useRef                    useRef
+88. useEffect                 useEffect
+89. useState                  useState
+90. useState                  useState
+91. useState                  useState
+92. useState                  useState
+93. useEffect                 useEffect
+94. undefined                 useEffect
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    at YahtzeeGame (https://96vetx8axjyewqb8x0li.apps.whop.com/src/components/yahtzee-game.tsx:62:39)
+    at div
+    at div
+    at GameRoom (https://96vetx8axjyewqb8x0li.apps.whop.com/src/pages/game-room.tsx:25:44)
+    at Route (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=23ae9525:323:16)
+    at Switch (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=23ae9525:379:17)
+    at Router (https://96vetx8axjyewqb8x0li.apps.whop.com/src/App.tsx?v=315FGKMKCJw_nv3PMMmrn:43:27)
+    at div
+    at Provider (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-VJRUVGTI.js?v=23ae9525:38:15)
+    at TooltipProvider (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=23ae9525:63:5)
+    at ThemeProvider (https://96vetx8axjyewqb8x0li.apps.whop.com/src/contexts/ThemeContext.tsx:20:33)
+    at QueryClientProvider (https://96vetx8axjyewqb8x0li.apps.whop.com/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=23ae9525:2805:3)

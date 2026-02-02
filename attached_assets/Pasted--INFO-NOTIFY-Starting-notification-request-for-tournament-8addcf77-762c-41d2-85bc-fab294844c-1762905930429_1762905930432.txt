@@ -1,0 +1,25 @@
+ℹ️ INFO: 🔔 [NOTIFY] Starting notification request for tournament 8addcf77-762c-41d2-85bc-fab294844c16
+ℹ️ INFO: 🔔 [NOTIFY] User: user_6SjB1Wo0chseh, Tournament ID: 8addcf77-762c-41d2-85bc-fab294844c16
+ℹ️ INFO: 🔔 [NOTIFY] Tournament fetched: {"id":"8addcf77-762c-41d2-85bc-fab294844c16","name":"22","companyId":null,"experienceId":"exp_gNHCDZwSGJEEAQ"}
+ℹ️ INFO: 🔔 [NOTIFY] Resource ID for admin check: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Checking admin access for user user_6SjB1Wo0chseh on resource exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Access level: admin
+ℹ️ INFO: 🔔 [NOTIFY] No companyId, fetching company from experienceId: exp_gNHCDZwSGJEEAQ
+ℹ️ INFO: 🔔 [NOTIFY] Retrieved company from experience: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Using company ID: biz_EfM4YDzQmtSt1P
+ℹ️ INFO: 🔔 [NOTIFY] Fetching members for company biz_EfM4YDzQmtSt1P...
+ℹ️ INFO: 🔔 [NOTIFY] Fetching members page (after: start)...
+❌ ERROR: 🔔 [NOTIFY] ❌ Failed to fetch members or send notification: Error: Failed to fetch members: 401 Unauthorized
+    at res (/home/runner/workspace/server/routes.ts:3914:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:3906:40)
+❌ ERROR: 🔔 [NOTIFY] ❌ EXCEPTION caught: Error: Failed to fetch members: 401 Unauthorized
+    at res (/home/runner/workspace/server/routes.ts:3914:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:3906:40)
+❌ ERROR: 🔔 [NOTIFY] ❌ Error message: Failed to fetch members: 401 Unauthorized
+❌ ERROR: 🔔 [NOTIFY] ❌ Error stack: Error: Failed to fetch members: 401 Unauthorized
+    at res (/home/runner/workspace/server/routes.ts:3914:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:3906:40)
+12:05:12 AM [express] POST /api/tournaments/8addcf77-762c-41d2-85bc-fab294844c16/notify 500 in 3576ms…
