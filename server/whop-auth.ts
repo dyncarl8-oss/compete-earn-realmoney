@@ -10,7 +10,7 @@ export interface WhopUser {
 
 export async function requireWhopAuth(req: Request, res: Response, next: NextFunction) {
   const userToken = req.headers["x-whop-user-token"] as string;
-  
+
   try {
     if (!userToken) {
       // Only log this in development when not expected
@@ -21,8 +21,13 @@ export async function requireWhopAuth(req: Request, res: Response, next: NextFun
     }
 
     // Use Whop SDK to verify the JWT token properly
-    const result = await whopSdk.verifyUserToken(userToken);
-    
+    let result;
+    if (process.env.NODE_ENV === "development" && userToken === "mock-whop-token-for-development") {
+      result = { userId: "user_mock_for_development" };
+    } else {
+      result = await whopSdk.verifyUserToken(userToken);
+    }
+
     // Debug logging to track user ID changes
     logger.debug("JWT Token Debug:", {
       tokenLength: userToken.length,
@@ -30,12 +35,12 @@ export async function requireWhopAuth(req: Request, res: Response, next: NextFun
       extractedUserId: result.userId,
       route: req.path
     });
-    
+
     (req as any).whopUser = {
       id: result.userId,
       experienceId: req.params.experienceId || req.body.experienceId
     };
-    
+
     // Update user activity to track that they're online
     try {
       await storage.updateUserActivity(result.userId);
@@ -43,7 +48,7 @@ export async function requireWhopAuth(req: Request, res: Response, next: NextFun
       // Don't fail the request if activity tracking fails, just log it
       logger.debug("Failed to update user activity:", error);
     }
-    
+
     next();
   } catch (error) {
     // Only log detailed auth errors in development if it's not the mock token
@@ -56,16 +61,16 @@ export async function requireWhopAuth(req: Request, res: Response, next: NextFun
 
 export async function requireAdminAuth(req: Request, res: Response, next: NextFunction) {
   const whopUser = (req as any).whopUser as WhopUser;
-  
+
   try {
     if (!whopUser) {
       return res.status(401).json({ error: "Authentication required" });
     }
 
     // Get the resource ID from params, query, or body
-    const resourceId = req.params.companyId || req.params.experienceId || 
-                      req.query.companyId || req.query.experienceId ||
-                      req.body.companyId || req.body.experienceId;
+    const resourceId = req.params.companyId || req.params.experienceId ||
+      req.query.companyId || req.query.experienceId ||
+      req.body.companyId || req.body.experienceId;
 
     if (!resourceId) {
       return res.status(400).json({ error: "Resource ID required for admin check" });
