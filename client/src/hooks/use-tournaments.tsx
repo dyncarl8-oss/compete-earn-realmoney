@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 interface Tournament {
   id: string;
@@ -39,26 +40,6 @@ interface UpdateTournamentStatusParams {
   experienceId?: string;
 }
 
-async function apiRequest(method: string, url: string, body?: any) {
-  const userToken = sessionStorage.getItem('whop_user_token') || localStorage.getItem('whop_user_token');
-  
-  const response = await fetch(url, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      'x-whop-user-token': userToken || '',
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || 'Request failed');
-  }
-
-  return response.json();
-}
-
 export function useTournaments() {
   return useQuery<Tournament[]>({
     queryKey: ['/api/tournaments'],
@@ -80,7 +61,7 @@ export function useCreateTournament() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (params: CreateTournamentParams) => 
+    mutationFn: (params: CreateTournamentParams) =>
       apiRequest('POST', '/api/tournaments', params),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/tournaments'] });
@@ -105,7 +86,7 @@ export function useUpdateTournamentStatus() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ tournamentId, status, companyId, experienceId }: UpdateTournamentStatusParams) => 
+    mutationFn: ({ tournamentId, status, companyId, experienceId }: UpdateTournamentStatusParams) =>
       apiRequest('PUT', `/api/tournaments/${tournamentId}/status`, { status, companyId, experienceId }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/tournaments'] });
@@ -139,7 +120,7 @@ export function useStartTournament() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ tournamentId, companyId, experienceId }: { tournamentId: string; companyId?: string; experienceId?: string }) => 
+    mutationFn: ({ tournamentId, companyId, experienceId }: { tournamentId: string; companyId?: string; experienceId?: string }) =>
       apiRequest('PUT', `/api/tournaments/${tournamentId}/status`, { status: 'started', companyId, experienceId }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/tournaments'] });
@@ -164,7 +145,7 @@ export function useNotifyTournamentMembers() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (tournamentId: string) => 
+    mutationFn: (tournamentId: string) =>
       apiRequest('POST', `/api/tournaments/${tournamentId}/notify`, {}),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/tournaments'] });

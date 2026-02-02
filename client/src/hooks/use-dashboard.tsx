@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 interface UserData {
   id: string;
@@ -41,26 +42,6 @@ interface TransferParams {
   notes?: string;
 }
 
-async function apiRequest(method: string, url: string, body?: any) {
-  const userToken = sessionStorage.getItem('whop_user_token') || localStorage.getItem('whop_user_token');
-  
-  const response = await fetch(url, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      'x-whop-user-token': userToken || '',
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || 'Request failed');
-  }
-
-  return response.json();
-}
-
 export function useDashboardUser(userId: string | null) {
   return useQuery<UserData>({
     queryKey: ['/api/whop/dashboard/user', userId],
@@ -81,7 +62,7 @@ export function useDashboardTransfer() {
   const { toast } = useToast();
 
   return useMutation({
-    mutationFn: (params: TransferParams) => 
+    mutationFn: (params: TransferParams) =>
       apiRequest('POST', '/api/whop/dashboard/transfer', params),
     onSuccess: () => {
       toast({

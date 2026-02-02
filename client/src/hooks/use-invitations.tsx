@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 export interface GameInvitation {
@@ -39,12 +40,7 @@ export function useInvitations() {
   } = useQuery({
     queryKey: ["invitations"],
     queryFn: async (): Promise<GameInvitation[]> => {
-      const response = await fetch("/api/invitations", {
-        credentials: "include", // Include auth cookies
-      });
-      if (!response.ok) {
-        throw new Error("Failed to fetch invitations");
-      }
+      const response = await apiRequest("GET", "/api/invitations");
       return response.json();
     },
     refetchInterval: 10000, // Reduced from 3s to 10s for better performance with Firestore
@@ -58,21 +54,9 @@ export function useInvitations() {
   // Accept invitation
   const acceptInvitation = async (invitationId: string) => {
     try {
-      const response = await fetch(`/api/invitations/${invitationId}/accept`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || "Failed to accept invitation");
-      }
-
+      const response = await apiRequest("POST", `/api/invitations/${invitationId}/accept`);
       const result = await response.json();
-      
+
       // Refresh invitations data
       queryClient.invalidateQueries({ queryKey: ["invitations"] });
       queryClient.invalidateQueries({ queryKey: ["games"] });
@@ -97,18 +81,7 @@ export function useInvitations() {
   // Decline invitation
   const declineInvitation = async (invitationId: string) => {
     try {
-      const response = await fetch(`/api/invitations/${invitationId}/decline`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || "Failed to decline invitation");
-      }
+      await apiRequest("POST", `/api/invitations/${invitationId}/decline`);
 
       // Refresh invitations data
       queryClient.invalidateQueries({ queryKey: ["invitations"] });
