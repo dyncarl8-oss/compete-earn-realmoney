@@ -17,13 +17,12 @@ function getWhopToken(): string | null {
       return decodeURIComponent(value);
     }
   }
-  
-  // Fallback: In development, use mock token when in iframe
+
+  // Fallback: In development, always use mock token
   if (import.meta.env.DEV) {
-    const inIframe = window !== window.top;
-    return inIframe ? "mock-whop-token-for-development" : null;
+    return "mock-whop-token-for-development";
   }
-  
+
   return null;
 }
 
@@ -33,7 +32,7 @@ export async function apiRequest(
   data?: unknown | undefined,
 ): Promise<Response> {
   const whopToken = getWhopToken();
-  
+
   const res = await fetch(url, {
     method,
     headers: {
@@ -53,23 +52,23 @@ export const getQueryFn: <T>(options: {
   on401: UnauthorizedBehavior;
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
-  async ({ queryKey }) => {
-    const whopToken = getWhopToken();
-    
-    const res = await fetch(queryKey.join("/") as string, {
-      credentials: "include",
-      headers: {
-        ...(whopToken ? { "x-whop-user-token": whopToken } : {}),
-      },
-    });
+    async ({ queryKey }) => {
+      const whopToken = getWhopToken();
 
-    if (unauthorizedBehavior === "returnNull" && res.status === 401) {
-      return null;
-    }
+      const res = await fetch(queryKey.join("/") as string, {
+        credentials: "include",
+        headers: {
+          ...(whopToken ? { "x-whop-user-token": whopToken } : {}),
+        },
+      });
 
-    await throwIfResNotOk(res);
-    return await res.json();
-  };
+      if (unauthorizedBehavior === "returnNull" && res.status === 401) {
+        return null;
+      }
+
+      await throwIfResNotOk(res);
+      return await res.json();
+    };
 
 export const queryClient = new QueryClient({
   defaultOptions: {
